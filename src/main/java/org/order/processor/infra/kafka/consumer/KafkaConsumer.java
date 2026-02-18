@@ -19,8 +19,8 @@ public class KafkaConsumer {
     public void consume(ConsumerRecord<String, CreateOrderDTO> consumerRecord, Acknowledgment acknowledgment) {
         try {
             calculate.calculateAndSaveTotal(consumerRecord.value());
-
-
+            acknowledgment.acknowledge();
+            log.info("Request sent with success, for correlation id {}, orderId {}", consumerRecord.value().correlationId(), consumerRecord.value().orderId());
         } catch (Exception e) {
          log.warn("Error processing the message, correlationId: {}", consumerRecord.value().correlationId());
         }
