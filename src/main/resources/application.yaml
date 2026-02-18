@@ -1,0 +1,10 @@
+spring:
+  application:
+   name: processor
+  kafka:
+    bootstrap-servers: ${KAFKA_SERVER}
+  mongodb:
+    uri: ${MONGO_URL}
+
+apps:
+  collection: ${MONGO_COLLECTION}
