@@ -1,7 +1,7 @@
 package org.order.processor.application.dto.request;
 
 import java.math.BigDecimal;
-import java.time.ZonedDateTime;
+import java.time.Instant;
 
 public record CreateOrderDTO(
         String orderId,
@@ -10,6 +10,6 @@ public record CreateOrderDTO(
         String product,
         Integer quantity,
         BigDecimal price,
-        ZonedDateTime createdAt
+        Instant createdAt
 ) {
 }
