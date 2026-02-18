@@ -8,3 +8,5 @@ spring:
 
 apps:
   collection: ${MONGO_COLLECTION}
+server:
+  port: 8090
