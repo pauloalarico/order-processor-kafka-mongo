@@ -8,5 +8,6 @@ spring:
 
 apps:
   collection: ${MONGO_COLLECTION}
+  order-path: ${ORDER_PATH}
 server:
   port: 8090
