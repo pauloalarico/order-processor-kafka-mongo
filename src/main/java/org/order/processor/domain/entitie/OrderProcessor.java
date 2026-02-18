@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.math.BigDecimal;
 
-@Document(collection = "${apps.collection}")
+@Document(collection = "order-processor")
 @Getter
 public class OrderProcessor {
     @Id
@@ -16,6 +16,7 @@ public class OrderProcessor {
     private BigDecimal totalValue;
 
     public OrderProcessor(CreateOrderDTO dto) {
+        this.correlationId = dto.correlationId();
         this.product = dto.product();
         this.totalValue = calculateTotalValue(dto.price(), dto.quantity());
     }
