@@ -33,7 +33,6 @@ public class KafkaConfig {
         config.put(JacksonJsonDeserializer.TYPE_MAPPINGS, createOrderPath);
         config.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, false);
         config.put(JacksonJsonDeserializer.TRUSTED_PACKAGES, "*");
-        config.put(JacksonJsonDeserializer.VALUE_DEFAULT_TYPE, CreateOrderDTO.class);
         return new DefaultKafkaConsumerFactory<>(config);
     }
 
