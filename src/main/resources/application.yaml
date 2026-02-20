@@ -3,11 +3,17 @@ spring:
    name: processor
   kafka:
     bootstrap-servers: ${KAFKA_SERVER}
+    consumer:
+      group-id: ${GROUP_ID}
   mongodb:
     uri: ${MONGO_URL}
 
 apps:
   collection: ${MONGO_COLLECTION}
   order-path: ${ORDER_PATH}
+  topic-process: ${TOPIC_PROCESS}
+  kafka-listener: ${KAFKA_TOPIC_LISTENER}
+  type-mapping-producer: ${TYPE_MAPPING}
+  topic-producer: ${TOPIC_PRODUCER}
 server:
   port: 8090
