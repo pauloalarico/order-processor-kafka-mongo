@@ -2,7 +2,7 @@ package org.order.processor.application.usecase;
 
 import lombok.RequiredArgsConstructor;
 import org.order.processor.application.dto.request.CreateOrderDTO;
-import org.order.processor.domain.entitie.OrderProcessor;
+import org.order.processor.domain.model.OrderProcessor;
 import org.order.processor.domain.repository.OrderProcessorRepository;
 import org.springframework.stereotype.Service;
 
@@ -12,8 +12,12 @@ public class CalculateTotalUseCase {
     private final OrderProcessorRepository repository;
 
 
-    public void calculateAndSaveTotal(CreateOrderDTO dto) {
+    public OrderProcessor calculateAndSaveTotal(CreateOrderDTO dto) {
         var orderProcessor = new OrderProcessor(dto);
-        repository.save(orderProcessor);
+        double random = Math.random();
+        if (random > 0.82) {
+            orderProcessor.cancelValue();
+        }
+        return repository.save(orderProcessor);
     }
 }
