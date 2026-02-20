@@ -1,7 +1,7 @@
 package org.order.processor.infra.persistence.repository;
 
 import lombok.RequiredArgsConstructor;
-import org.order.processor.domain.entitie.OrderProcessor;
+import org.order.processor.domain.model.OrderProcessor;
 import org.order.processor.domain.repository.OrderProcessorRepository;
 import org.springframework.stereotype.Repository;
 
