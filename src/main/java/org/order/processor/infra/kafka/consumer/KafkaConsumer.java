@@ -31,6 +31,7 @@ public class KafkaConsumer {
 
         } catch (Exception e) {
          log.warn("Error processing the message, correlationId: {}", consumerRecord.value().correlationId());
+         throw new RuntimeException(e);
         }
     }
 }
