@@ -6,6 +6,8 @@ import org.order.processor.domain.model.OrderProcessor;
 import org.order.processor.domain.repository.OrderProcessorRepository;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
+
 @Service
 @RequiredArgsConstructor
 public class CalculateTotalUseCase {
@@ -13,7 +15,11 @@ public class CalculateTotalUseCase {
 
 
     public OrderProcessor calculateAndSaveTotal(CreateOrderDTO dto) {
-        var orderProcessor = new OrderProcessor(dto);
+        String correlationId = dto.correlationId();
+        String product = dto.product();
+        Integer quantity = dto.quantity();
+        BigDecimal price = dto.price();
+        var orderProcessor = new OrderProcessor(correlationId, product, price, quantity);
         double random = Math.random();
         if (random > 0.82) {
             orderProcessor.cancelValue();
