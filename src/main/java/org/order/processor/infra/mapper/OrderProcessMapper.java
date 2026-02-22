@@ -7,6 +7,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class OrderProcessMapper {
     public  ResponseDTO toResponseDTO(OrderProcessor processor) {
-        return new ResponseDTO(processor);
+        return new ResponseDTO(
+                processor.getStatus(),
+                processor.getCorrelationId(),
+                processor.getTotalValue()
+        );
     }
 }
