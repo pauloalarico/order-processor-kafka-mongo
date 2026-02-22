@@ -17,10 +17,10 @@ public class OrderProcessor {
     private final BigDecimal totalValue;
     private Status status;
 
-    public OrderProcessor(CreateOrderDTO dto) {
-        this.correlationId = dto.correlationId();
-        this.product = dto.product();
-        this.totalValue = calculateTotalValue(dto.price(), dto.quantity());
+    public OrderProcessor(String correlationId, String product, BigDecimal totalValue, Integer quantity) {
+        this.correlationId = correlationId;
+        this.product = product;
+        this.totalValue = calculateTotalValue(totalValue, quantity);
         this.status = Status.ACTIVE;
     }
 
